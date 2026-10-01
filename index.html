@@ -130,6 +130,170 @@
       </div>
     </section>
 
+    <!-- ================================
+     CALENDÁRIO DE EVENTOS — BARROS
+     ================================ -->
+
+<section class="eventos-section" id="eventos">
+  <div class="eventos-container">
+
+    <div class="eventos-titulo">
+      <span>📅</span>
+      <div>
+        <p>AGENDA</p>
+        <h2>Próximos eventos</h2>
+      </div>
+    </div>
+
+    <div class="eventos-grid">
+
+      <!-- CALENDÁRIO -->
+      <div class="calendario-box">
+        <h3>Calendário</h3>
+
+        <iframe
+          src="https://calendar.google.com/calendar/embed?src=filipedsantos7@gmail.com&ctz=America%2FSao_Paulo"
+          style="border:0"
+          width="100%"
+          height="600"
+          frameborder="0"
+          scrolling="no">
+        </iframe>
+      </div>
+
+      <!-- PRÓXIMOS EVENTOS -->
+      <div class="proximos-box">
+        <h3>Próximos eventos</h3>
+
+        <div id="lista-eventos">
+          <p class="carregando">Carregando eventos...</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+.eventos-section {
+  padding: 80px 20px;
+  background: #080808;
+  color: #fff;
+}
+
+.eventos-container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.eventos-titulo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 40px;
+}
+
+.eventos-titulo span {
+  font-size: 38px;
+}
+
+.eventos-titulo p {
+  margin: 0;
+  color: #ff6a00;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.eventos-titulo h2 {
+  margin: 5px 0 0;
+  font-size: 34px;
+}
+
+.eventos-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 25px;
+}
+
+.calendario-box,
+.proximos-box {
+  background: #111;
+  border: 1px solid #292929;
+  border-radius: 15px;
+  padding: 20px;
+}
+
+.calendario-box h3,
+.proximos-box h3 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: #ff6a00;
+}
+
+.calendario-box iframe {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.evento-card {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  padding: 15px;
+  margin-bottom: 12px;
+  background: #181818;
+  border-radius: 10px;
+  border-left: 4px solid #ff6a00;
+}
+
+.evento-data {
+  min-width: 60px;
+  text-align: center;
+}
+
+.evento-dia {
+  display: block;
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.evento-mes {
+  display: block;
+  color: #ff6a00;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.evento-info h4 {
+  margin: 0 0 5px;
+  font-size: 17px;
+}
+
+.evento-info p {
+  margin: 0;
+  color: #aaa;
+  font-size: 14px;
+}
+
+.carregando {
+  color: #aaa;
+}
+
+@media (max-width: 800px) {
+  .eventos-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .eventos-titulo h2 {
+    font-size: 28px;
+  }
+
+  .calendario-box iframe {
+    height: 500px;
+  }
+}
+</style>
+    
     <!-- ================= PLANOS ================= -->
     <section class="plans" id="planos">
       <div class="section-title">
