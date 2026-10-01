@@ -213,86 +213,475 @@
   display: grid;
   grid-template-columns: 1.5fr 1fr;
   gap: 25px;
+
+  <!-- =========================================
+     PRÓXIMOS EVENTOS — ACADEMIA BARROS
+     ========================================= -->
+
+<section class="eventos-barros" id="eventos">
+    <div class="eventos-container">
+
+        <div class="eventos-header">
+            <span class="eventos-icone">📅</span>
+
+            <div>
+                <span class="eventos-label">AGENDA</span>
+                <h2>Próximos eventos</h2>
+                <p>Confira os próximos eventos da Academia Barros.</p>
+            </div>
+        </div>
+
+        <div id="eventos-lista" class="eventos-lista">
+            <div class="evento-carregando">
+                Carregando eventos...
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<style>
+
+/* =========================================
+   SEÇÃO DE EVENTOS
+   ========================================= */
+
+.eventos-barros {
+    width: 100%;
+    padding: 80px 20px;
+    background: #080808;
+    color: #ffffff;
 }
 
-.calendario-box,
-.proximos-box {
-  background: #111;
-  border: 1px solid #292929;
-  border-radius: 15px;
-  padding: 20px;
+.eventos-container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
 }
 
-.calendario-box h3,
-.proximos-box h3 {
-  margin-top: 0;
-  margin-bottom: 20px;
-  color: #ff6a00;
+
+/* CABEÇALHO */
+
+.eventos-header {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 35px;
 }
 
-.calendario-box iframe {
-  width: 100%;
-  border-radius: 10px;
+.eventos-icone {
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #ff6a00;
+    border-radius: 14px;
+
+    font-size: 28px;
 }
+
+.eventos-label {
+    display: block;
+
+    color: #ff6a00;
+
+    font-size: 13px;
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 5px;
+}
+
+.eventos-header h2 {
+    margin: 0;
+
+    font-size: 36px;
+    font-weight: 800;
+}
+
+.eventos-header p {
+    margin: 8px 0 0;
+
+    color: #999;
+
+    font-size: 15px;
+}
+
+
+/* LISTA */
+
+.eventos-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+
+/* CARD DO EVENTO */
 
 .evento-card {
-  display: flex;
-  gap: 15px;
-  align-items: center;
-  padding: 15px;
-  margin-bottom: 12px;
-  background: #181818;
-  border-radius: 10px;
-  border-left: 4px solid #ff6a00;
+    display: flex;
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 20px;
+
+    background: #111111;
+
+    border: 1px solid #242424;
+
+    border-left: 4px solid #ff6a00;
+
+    border-radius: 12px;
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease;
 }
 
+.evento-card:hover {
+    transform: translateY(-2px);
+
+    border-color: #ff6a00;
+}
+
+
+/* DATA */
+
 .evento-data {
-  min-width: 60px;
-  text-align: center;
+    flex-shrink: 0;
+
+    width: 70px;
+
+    text-align: center;
+
+    padding: 10px 5px;
+
+    background: #191919;
+
+    border-radius: 10px;
 }
 
 .evento-dia {
-  display: block;
-  font-size: 28px;
-  font-weight: 800;
+    display: block;
+
+    font-size: 30px;
+    font-weight: 900;
+
+    line-height: 1;
 }
 
 .evento-mes {
-  display: block;
-  color: #ff6a00;
-  font-size: 13px;
-  font-weight: 700;
+    display: block;
+
+    margin-top: 5px;
+
+    color: #ff6a00;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    text-transform: uppercase;
 }
 
-.evento-info h4 {
-  margin: 0 0 5px;
-  font-size: 17px;
+
+/* INFORMAÇÕES */
+
+.evento-info {
+    min-width: 0;
+}
+
+.evento-info h3 {
+    margin: 0 0 7px;
+
+    font-size: 19px;
+    font-weight: 800;
 }
 
 .evento-info p {
-  margin: 0;
-  color: #aaa;
-  font-size: 14px;
+    margin: 0;
+
+    color: #999;
+
+    font-size: 14px;
 }
 
-.carregando {
-  color: #aaa;
+.evento-hora {
+    color: #ffffff;
+    font-weight: 700;
 }
 
-@media (max-width: 800px) {
-  .eventos-grid {
-    grid-template-columns: 1fr;
-  }
 
-  .eventos-titulo h2 {
-    font-size: 28px;
-  }
+/* CARREGANDO */
 
-  .calendario-box iframe {
-    height: 500px;
-  }
+.evento-carregando {
+    padding: 30px;
+
+    text-align: center;
+
+    color: #999;
+
+    background: #111111;
+
+    border: 1px solid #242424;
+
+    border-radius: 12px;
 }
+
+
+/* SEM EVENTOS */
+
+.evento-vazio {
+    padding: 30px;
+
+    text-align: center;
+
+    color: #999;
+
+    background: #111111;
+
+    border: 1px solid #242424;
+
+    border-radius: 12px;
+}
+
+
+/* ERRO */
+
+.evento-erro {
+    padding: 20px;
+
+    text-align: center;
+
+    color: #999;
+
+    background: #111111;
+
+    border: 1px solid #242424;
+
+    border-radius: 12px;
+}
+
+
+/* CELULAR */
+
+@media (max-width: 600px) {
+
+    .eventos-barros {
+        padding: 60px 15px;
+    }
+
+    .eventos-header {
+        align-items: flex-start;
+    }
+
+    .eventos-icone {
+        width: 50px;
+        height: 50px;
+
+        font-size: 24px;
+    }
+
+    .eventos-header h2 {
+        font-size: 28px;
+    }
+
+    .eventos-header p {
+        font-size: 14px;
+    }
+
+    .evento-card {
+        gap: 14px;
+        padding: 15px;
+    }
+
+    .evento-data {
+        width: 60px;
+    }
+
+    .evento-dia {
+        font-size: 25px;
+    }
+
+    .evento-info h3 {
+        font-size: 16px;
+    }
+
+    .evento-info p {
+        font-size: 13px;
+    }
+}
+
 </style>
+
+
+<script>
+
+/* =========================================
+   CONFIGURAÇÃO
+   ========================================= */
+
+/*
+   ⚠️ ÚNICA COISA QUE VOCÊ PRECISA TROCAR:
+
+   coloque aqui a URL do seu Google Apps Script.
+
+   Exemplo:
+
+   const URL_EVENTOS =
+   "https://script.google.com/macros/s/SEU_CODIGO/exec";
+*/
+
+const URL_EVENTOS =
+"https://script.google.com/macros/s/COLOQUE_SUA_URL_AQUI/exec";
+
+
+/* =========================================
+   CARREGAR EVENTOS
+   ========================================= */
+
+async function carregarEventosBarros() {
+
+    const lista = document.getElementById("eventos-lista");
+
+    try {
+
+        const resposta = await fetch(URL_EVENTOS);
+
+        if (!resposta.ok) {
+            throw new Error("Erro ao acessar os eventos.");
+        }
+
+        const eventos = await resposta.json();
+
+        lista.innerHTML = "";
+
+        if (!eventos || eventos.length === 0) {
+
+            lista.innerHTML = `
+                <div class="evento-vazio">
+                    Nenhum evento próximo no momento.
+                </div>
+            `;
+
+            return;
+        }
+
+
+        eventos.forEach(evento => {
+
+            const data = new Date(evento.data);
+
+            const dia = String(data.getDate()).padStart(2, "0");
+
+            const meses = [
+                "JAN",
+                "FEV",
+                "MAR",
+                "ABR",
+                "MAI",
+                "JUN",
+                "JUL",
+                "AGO",
+                "SET",
+                "OUT",
+                "NOV",
+                "DEZ"
+            ];
+
+            const mes = meses[data.getMonth()];
+
+
+            let horario = "";
+
+            if (evento.hora) {
+                horario = `🕐 ${evento.hora}`;
+            }
+
+
+            const card = document.createElement("div");
+
+            card.className = "evento-card";
+
+            card.innerHTML = `
+
+                <div class="evento-data">
+
+                    <span class="evento-dia">
+                        ${dia}
+                    </span>
+
+                    <span class="evento-mes">
+                        ${mes}
+                    </span>
+
+                </div>
+
+
+                <div class="evento-info">
+
+                    <h3>
+                        ${evento.titulo}
+                    </h3>
+
+                    <p>
+                        <span class="evento-hora">
+                            ${horario}
+                        </span>
+
+                        ${evento.descricao
+                            ? " • " + evento.descricao
+                            : ""
+                        }
+                    </p>
+
+                </div>
+
+            `;
+
+            lista.appendChild(card);
+
+        });
+
+    } catch (erro) {
+
+        console.error(erro);
+
+        lista.innerHTML = `
+
+            <div class="evento-erro">
+
+                Não foi possível carregar os eventos no momento.
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+/* CARREGAR QUANDO A PÁGINA ABRIR */
+
+carregarEventosBarros();
+
+
+/*
+   Atualiza a lista a cada 5 minutos.
+   Assim, se você adicionar um evento pelo celular,
+   o site poderá atualizar sem precisar alterar o código.
+*/
+
+setInterval(carregarEventosBarros, 5 * 60 * 1000);
+
+</script>
     
     <!-- ================= PLANOS ================= -->
     <section class="plans" id="planos">
