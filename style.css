@@ -1,0 +1,813 @@
+/* =========================================================
+   ACADEMIA BARROS - ESTILO
+   ========================================================= */
+
+:root {
+  --black: #070707;
+  --black-2: #101010;
+  --orange: #ff5a00;
+  --orange-2: #ff7300;
+  --white: #ffffff;
+  --gray: #cfcfcf;
+  --dark-gray: #191919;
+  --max-width: 1180px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: "Montserrat", Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ================= HEADER ================= */
+
+.header {
+  height: 76px;
+  padding: 0 5%;
+  background: #050505;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #222;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 270px;
+  max-height: 62px;
+  object-fit: contain;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 52px;
+  height: 100%;
+}
+
+.nav a {
+  font-size: 15px;
+  font-weight: 800;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  transition: .2s;
+}
+
+.nav a:hover,
+.nav a.active {
+  color: var(--orange);
+}
+
+.nav a.active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--orange);
+}
+
+.menu-toggle {
+  display: none;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  width: 28px;
+  height: 3px;
+  margin: 5px;
+  display: block;
+  background: var(--white);
+}
+
+/* ================= HERO ================= */
+
+.hero {
+  min-height: 320px;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr 1fr;
+  background: #050505;
+  overflow: hidden;
+}
+
+.hero-side {
+  height: 320px;
+  overflow: hidden;
+}
+
+.hero-side img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-left img {
+  object-position: center;
+}
+
+.hero-right img {
+  object-position: center;
+}
+
+.hero-center {
+  min-height: 320px;
+  background: radial-gradient(circle, #171717 0%, #050505 72%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 25px;
+}
+
+.hero-logo {
+  width: min(380px, 85%);
+  max-height: 205px;
+  object-fit: contain;
+}
+
+.hero-services {
+  display: flex;
+  align-items: center;
+  gap: 27px;
+  margin-top: 15px;
+}
+
+.service {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+}
+
+.service-icon {
+  font-size: 28px;
+  filter: grayscale(1) brightness(2);
+}
+
+.divider {
+  width: 3px;
+  height: 37px;
+  background: var(--orange);
+}
+
+/* ================= GALLERY ================= */
+
+.gallery-section {
+  background: #080808;
+  padding: 15px 5% 10px;
+  position: relative;
+}
+
+.gallery {
+  max-width: var(--max-width);
+  margin: auto;
+  overflow: hidden;
+}
+
+.gallery-track {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.gallery-track img {
+  width: 100%;
+  height: 164px;
+  object-fit: cover;
+  border-radius: 3px;
+}
+
+.gallery-arrow {
+  position: absolute;
+  top: 42%;
+  z-index: 2;
+  width: 38px;
+  height: 55px;
+  border: 0;
+  background: transparent;
+  color: white;
+  font-size: 55px;
+  line-height: 40px;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.gallery-arrow:hover {
+  color: var(--orange);
+  transform: scale(1.1);
+}
+
+.gallery-arrow.prev {
+  left: 8px;
+}
+
+.gallery-arrow.next {
+  right: 8px;
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 9px;
+  margin-top: 10px;
+}
+
+.dot {
+  width: 9px;
+  height: 9px;
+  border: 0;
+  border-radius: 50%;
+  background: #666;
+  cursor: pointer;
+}
+
+.dot.active {
+  background: var(--orange);
+}
+
+/* ================= ABOUT ================= */
+
+.about {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 34px 0;
+  display: grid;
+  grid-template-columns: 36% 64%;
+  background: var(--black);
+}
+
+.about-text {
+  padding: 0 38px 0 5px;
+  border-right: 1px solid #666;
+}
+
+.eyebrow {
+  color: var(--orange);
+  font-weight: 900;
+  font-size: 16px;
+}
+
+.about-text h2 {
+  margin: 4px 0 18px;
+  font-size: clamp(30px, 3vw, 42px);
+  line-height: .98;
+  font-weight: 900;
+}
+
+.about-text h2 span {
+  color: var(--orange);
+}
+
+.about-text p {
+  color: #eee;
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+.taekwondo-info {
+  padding-left: 38px;
+}
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 27px;
+}
+
+.big-icon {
+  font-size: 47px;
+}
+
+.section-heading h2 {
+  font-size: 27px;
+  font-weight: 900;
+}
+
+.section-heading p {
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+.age-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.age-grid article {
+  min-height: 150px;
+  text-align: center;
+  padding: 0 20px;
+  border-right: 1px solid #555;
+}
+
+.age-grid article:last-child {
+  border-right: 0;
+}
+
+.age-icon {
+  font-size: 34px;
+  color: var(--orange);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.age-grid h3 {
+  font-size: 15px;
+  font-weight: 900;
+  margin-bottom: 8px;
+}
+
+.age-grid p {
+  font-size: 12px;
+  color: #eee;
+  line-height: 1.45;
+}
+
+/* ================= PLANS ================= */
+
+.plans {
+  background: #f2f2f2;
+  color: #101010;
+  padding: 27px 5% 32px;
+}
+
+.section-title {
+  max-width: var(--max-width);
+  margin: 0 auto 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  position: relative;
+  flex-wrap: wrap;
+}
+
+.section-title span {
+  width: 78px;
+  height: 3px;
+  background: var(--orange);
+}
+
+.section-title h2 {
+  font-size: 30px;
+  font-weight: 900;
+}
+
+.section-title strong {
+  color: var(--orange);
+}
+
+.section-title p {
+  width: 100%;
+  text-align: center;
+  font-size: 11px;
+  letter-spacing: 3px;
+  margin-top: -15px;
+}
+
+.plans-grid {
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.plan-card {
+  background: #080808;
+  color: white;
+  border: 2px solid var(--orange);
+  border-radius: 9px;
+  padding: 21px 25px 16px;
+  text-align: center;
+  min-height: 190px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.plan-icon {
+  color: var(--orange);
+  font-size: 37px;
+  line-height: 1;
+  margin-bottom: 7px;
+}
+
+.plan-card h3 {
+  font-size: 17px;
+  font-weight: 900;
+}
+
+.plan-card p {
+  font-size: 13px;
+  color: #ddd;
+  min-height: 20px;
+}
+
+.price {
+  color: var(--orange);
+  font-size: 25px;
+  font-weight: 700;
+  margin: 8px 0 12px;
+}
+
+.price strong {
+  font-size: 40px;
+  font-weight: 900;
+}
+
+.price small {
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.plan-button {
+  margin-top: auto;
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 30px;
+  background: var(--orange);
+  color: white;
+  font-size: 12px;
+  font-weight: 900;
+  transition: .2s;
+}
+
+.plan-button:hover {
+  background: var(--orange-2);
+  transform: translateY(-2px);
+}
+
+/* ================= LOCATION ================= */
+
+.location {
+  background: #080808;
+  padding: 26px 5% 38px;
+}
+
+.location-heading {
+  max-width: 900px;
+  margin: auto auto 20px;
+  display: flex;
+  align-items: center;
+  gap: 17px;
+}
+
+.location-icon {
+  font-size: 46px;
+}
+
+.location-heading h2 {
+  font-size: 27px;
+  font-weight: 900;
+}
+
+.location-heading strong {
+  color: var(--orange);
+}
+
+.location-heading p {
+  font-size: 12px;
+  margin-top: 3px;
+  color: #ddd;
+}
+
+.map-wrapper {
+  max-width: 1080px;
+  height: 270px;
+  margin: auto;
+  overflow: hidden;
+  border: 1px solid #555;
+  border-radius: 10px;
+  background: #222;
+}
+
+.map-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  filter: grayscale(.1);
+}
+
+/* ================= FOOTER ================= */
+
+.footer {
+  padding: 35px 5%;
+  background: #030303;
+  border-top: 1px solid #222;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+}
+
+.footer-logo {
+  width: 170px;
+}
+
+.footer p {
+  color: #aaa;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 25px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.footer-links a:hover {
+  color: var(--orange);
+}
+
+.copyright {
+  text-align: right;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 900px) {
+  .header {
+    height: 68px;
+  }
+
+  .logo {
+    width: 220px;
+  }
+
+  .menu-toggle {
+    display: block;
+    z-index: 1001;
+  }
+
+  .nav {
+    position: fixed;
+    top: 68px;
+    right: -100%;
+    width: 75%;
+    max-width: 300px;
+    height: calc(100vh - 68px);
+    background: #080808;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 35px 25px;
+    gap: 0;
+    transition: right .25s ease;
+    border-left: 1px solid #333;
+  }
+
+  .nav.open {
+    right: 0;
+  }
+
+  .nav a {
+    width: 100%;
+    height: 55px;
+    justify-content: center;
+  }
+
+  .nav a.active::after {
+    bottom: 5px;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-side {
+    display: none;
+  }
+
+  .hero-center {
+    min-height: 390px;
+  }
+
+  .hero-logo {
+    width: 330px;
+  }
+
+  .gallery-track {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about {
+    grid-template-columns: 1fr;
+    padding: 35px 5%;
+  }
+
+  .about-text {
+    border-right: 0;
+    border-bottom: 1px solid #666;
+    padding: 0 0 28px;
+  }
+
+  .taekwondo-info {
+    padding: 28px 0 0;
+  }
+
+  .plans-grid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+  }
+
+  .footer {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .copyright {
+    text-align: center;
+  }
+}
+
+@media (max-width: 550px) {
+  .header {
+    padding: 0 18px;
+  }
+
+  .logo {
+    width: 185px;
+  }
+
+  .hero-center {
+    min-height: 320px;
+  }
+
+  .hero-logo {
+    width: 270px;
+  }
+
+  .hero-services {
+    gap: 12px;
+  }
+
+  .service {
+    font-size: 11px;
+  }
+
+  .service-icon {
+    font-size: 21px;
+  }
+
+  .gallery-section {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .gallery-track {
+    display: block;
+  }
+
+  .gallery-track img {
+    display: none;
+    height: 190px;
+  }
+
+  .gallery-track img:first-child {
+    display: block;
+  }
+
+  .gallery-arrow.prev {
+    left: 0;
+  }
+
+  .gallery-arrow.next {
+    right: 0;
+  }
+
+  .age-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .age-grid article {
+    border-right: 0;
+    border-bottom: 1px solid #444;
+    padding-bottom: 18px;
+  }
+
+  .age-grid article:last-child {
+    border-bottom: 0;
+  }
+
+  .section-title {
+    gap: 10px;
+  }
+
+  .section-title span {
+    width: 45px;
+  }
+
+  .section-title h2 {
+    font-size: 25px;
+  }
+
+  .location-heading h2 {
+    font-size: 21px;
+  }
+
+  .map-wrapper {
+    height: 230px;
+  }
+}
+
+/* ================= WHATSAPP ================= */
+
+.whatsapp-float {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+
+  width: 62px;
+  height: 62px;
+
+  border-radius: 50%;
+
+  background: #25D366;
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 9999;
+
+  text-decoration: none;
+
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.whatsapp-float svg {
+  width: 34px;
+  height: 34px;
+  fill: white;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.55);
+}
+
+.whatsapp-float:active {
+  transform: scale(0.95);
+}
+
+/* Botões dos planos */
+.plan-button {
+  cursor: pointer;
+}
+
+/* Ajuste para celular */
+@media (max-width: 600px) {
+  .whatsapp-float {
+    width: 56px;
+    height: 56px;
+    right: 18px;
+    bottom: 18px;
+  }
+
+  .whatsapp-float svg {
+    width: 30px;
+    height: 30px;
+  }
+}
