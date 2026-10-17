@@ -79,7 +79,7 @@ if (year) {
 
 // ================= WHATSAPP =================
 
-const whatsappNumber = "5553991857521";
+const whatsappNumber = "555381115711";
 
 const whatsappMessage =
   "Olá! Vim pelo site da Academia Barros e me interessei pelos planos. Gostaria de me inscrever!";
